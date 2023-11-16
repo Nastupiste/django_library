@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Libros</title>
+  </head>
+  <body>
+    <h1>Bienvenido a la Biblioteca</h1>
+    <h3>Éstos son los libros disponibles:</h3>
+    <ul>
+      {% for book in books %}
+      <li><b>título:</b> <a href="{% url 'book_details' pk=book.pk %}">{{ book.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <br />
+    <form action="{% url 'add_book' %}" method="get">
+      <button type="submit">Añadir Libro</button>
+    </form>
+  </body>
+</html>

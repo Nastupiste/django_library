@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles</title>
+  </head>
+  <body>
+    <h1>Detalles del Libro:</h1>
+
+    <h3>Título: {{ book.title }}</h3>
+    <h3>Autor: {{ book.description }}</h3>
+    <h3>rating: {{ book.rating }}</h3>
+    <h3>Sinópsis: {{ book.sinopsis }}</h3>
+    <br />
+    <form action="{% url 'book_edit' pk=book.pk %}" method="get">
+      <button type="submit">Editar</button>
+    </form>
+    <br />
+    <form action="{% url 'book_list' %}" method="get">
+      <button type="submit">Volver</button>
+    </form>
+    <br />
+  </body>
+</html>
