@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Añadir libros</title>
-  </head>
-  <body>
-    <h1>Nueva Libro</h1>
-    <form action="{% url 'add_book' %}" method="POST">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Enviar</button>
-    </form>
+{% extends 'base.html' %} {% block content %}
+<h1>Nuevo Libro</h1>
+<form action="{% url 'add_book' %}" method="POST">
+  <article>
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Enviar</button>
     <br />
-    <form action="{% url 'book_list' %}" method="get">
-      <button type="submit">Volver</button>
-    </form>
-  </body>
-</html>
+    <a href="{% url 'book_list' %}" role="button">Volver</a>
+  </article>
+</form>
+{% endblock %}
